@@ -16,56 +16,88 @@ draft: false
     <h3>Getting Started</h3>
     <p>To get started, I first looked through the available community <a href="https://themes.gohugo.io/">themes</a> and
         found a couple that caught the eye, namely "paper" and "terminal".</p>
-    {{< image src="/images/Paper_Theme_Hugo.png" alt="Hello Friend" position="center" style="border-radius: 8px;" >}}
-    <p><a href="https://themes.gohugo.io/themes/hugo-paper/">Paper</a>, pictured above, is a very simple theme. It is
-        clean and looks nice, but ultimately I decided that it lacked personality. It also had some design quirks
-        regarding the profile picture that I found hard to edit without digging into the source code, which is not
-        recommended as it would break compatibility with future updates to the theme. In general it is best to avoid
-        modifying any of the theme files.</p>
-    {{< image src="/images/Terminal_Theme_Hugo.png" alt="Hello Friend" position="center" style="border-radius: 8px;" >}}
-    <p><a href="https://themes.gohugo.io/themes/hugo-theme-terminal/#how-to-start">Terminal</a>, on the other hand, is
-        nothing but personality. It emulates the design of a command line interface, or CLI, by using blocky text
-        characters and a somewhat sparse design. Unlike other terminal themes, which lean heavily on the actual
-        experience of using a terminal, this theme only portrays some of the look while still keeping in mind the user
-        experience expected of a website. The only thing that I disliked, was the use of a monospace font for every part
-        of the website. The font pulled the terminal design together, but provided a less than ideal reading experience
-        for long bodies of text. I decided that it should be a design flare and not the main text for the website.</p>
-    <h3>Setting up the website with the Terminal theme</h3>
-    <p>Using the Hugo <a href="https://gohugo.io/getting-started/quick-start/">quick start guide</a> I was able to very
-        easily setup my website with the Terminal theme. I had a bit of a hard time following the guide to install the
-        Hugo package, but luckily it is included by default in the Fedora linux repositories, and I didn't have to
-        install a separate homebrew package manager or compile from source.</p>
-    <p>Running a single command creates a Hugo website in the current working directory, and another two applies the
-        community theme. After you've created the website, running the command "hugo server" in the root directory of
-        the website starts a local live server, which automatically builds and updates based on changes you make in real
-        time. Hugo's blazing fast build speeds are one of it's main accolades.</p>
-    <h3>Changing the main body font for the Terminal theme</h3>
-    <p>Changing the font turned out to be a quite complex task, with me not knowing exactly what I was doing, but with
-        some patience I figured it out in the end. In the Terminal theme <a
-            href="https://themes.gohugo.io/themes/hugo-theme-terminal/#how-to-safely-edit-the-theme-a-idhow-to-edit-">documentation</a>,
-        it gave a simple method to solving the issue of changing the theme without modifying any of it's files; creating
-        another style.css file with higher specificity than the theme itself, allowing you to modify the CSS of the
-        theme while only working with a single file separate from the theme. With this, and some time and patience, I
-        was able to find a good serif font that fit the terminal theme but was still much more legible, add it to the
-        CSS file, and apply it to the body of the blog posts I write. To do this I write my posts with a mixture of
-        Markdown and HTML. I first write in Markdown to provide an easy writing experience that exchanges HTML's tag
-        structure for special characters that create specific attributes such as headings and ordered lists. Instead of
-        typing &lt;h1&gt;Heading&lt;/h1&gt;, you can just type # Heading. After I write the actual content in markdown,
-        I can export to html, and add the necessary HTML classes to apply the correct CSS.</p>
-    <h3>Deploying the site</h3>
-    <p>Unlike services such as WordPress, Hugo does not porovide hosting for the websites it creates. Luckily, however,
-        free hosting is included by GitHub pages for anyone with a GitHub account. Deploying the website was as simple
-        as running "hugo -D" to build the website to the public folder in the root directory of the website, and
-        uploading it to your github pages repo. My website was then publicly accessible from <a
-            href="https://aspendlove.github.io">aspendlove.github.io</a></p>
-    <h2>Closing thoughts</h2>
-    <p>While making this site may have taken longer than a simple WordPress hosted template, I found the learning
-        process of Hugo very enjoyable. I am one who would rather have complete control over my website's source code
-        and deployment, rather than relying on a service to provide it for me, but locking me out of the details and
-        low-level changes. While Hugo does allow you to create your own website, having the ability to use themes
-        allowed me to make the personal decision to reliquish some control over the interface, in the interest of time
-        spent on the project. However, it still allowed me to apply custom css and customize the options the theme makes
-        available, such as changing the preset color themes. Hugo has been a great tool to work with, and I can see
-        myself using it for future projects.</p>
+    {{< image src="/images/Paper_Theme_Hugo.png" alt="Hello Friend" position="center" style="border-radius: 8px;">}}
+        <p><a href="https://themes.gohugo.io/themes/hugo-paper/">Paper</a>, pictured above, is a very simple theme. It
+            is
+            clean and looks nice, but ultimately I decided that it lacked personality. It also had some design quirks
+            regarding the profile picture that I found hard to edit without digging into the source code, which is not
+            recommended as it would break compatibility with future updates to the theme. In general it is best to avoid
+            modifying any of the theme files.</p>
+        {{< image src="/images/Terminal_Theme_Hugo.png" alt="Hello Friend" position="center"
+            style="border-radius: 8px;">}}
+            <p><a href="https://themes.gohugo.io/themes/hugo-theme-terminal/#how-to-start">Terminal</a>, on the other
+                hand, is
+                nothing but personality. It emulates the design of a command line interface, or CLI, by using blocky
+                text
+                characters and a somewhat sparse design. Unlike other terminal themes, which lean heavily on the actual
+                experience of using a terminal, this theme only portrays some of the look while still keeping in mind
+                the user
+                experience expected of a website. The only thing that I disliked, was the use of a monospace font for
+                every part
+                of the website. The font pulled the terminal design together, but provided a less than ideal reading
+                experience
+                for long bodies of text. I decided that it should be a design flare and not the main text for the
+                website.</p>
+            <h3>Setting up the website with the Terminal theme</h3>
+            <p>Using the Hugo <a href="https://gohugo.io/getting-started/quick-start/">quick start guide</a> I was able
+                to very
+                easily setup my website with the Terminal theme. I had a bit of a hard time following the guide to
+                install the
+                Hugo package, but luckily it is included by default in the Fedora linux repositories, and I didn't have
+                to
+                install a separate homebrew package manager or compile from source.</p>
+            <p>Running a single command creates a Hugo website in the current working directory, and another two applies
+                the
+                community theme. After you've created the website, running the command "hugo server" in the root
+                directory of
+                the website starts a local live server, which automatically builds and updates based on changes you make
+                in real
+                time. Hugo's blazing fast build speeds are one of it's main accolades.</p>
+            <h3>Changing the main body font for the Terminal theme</h3>
+            <p>Changing the font turned out to be a quite complex task, with me not knowing exactly what I was doing,
+                but with
+                some patience I figured it out in the end. In the Terminal theme <a
+                    href="https://themes.gohugo.io/themes/hugo-theme-terminal/#how-to-safely-edit-the-theme-a-idhow-to-edit-">documentation</a>,
+                it gave a simple method to solving the issue of changing the theme without modifying any of it's files;
+                creating
+                another style.css file with higher specificity than the theme itself, allowing you to modify the CSS of
+                the
+                theme while only working with a single file separate from the theme. With this, and some time and
+                patience, I
+                was able to find a good serif font that fit the terminal theme but was still much more legible, add it
+                to the
+                CSS file, and apply it to the body of the blog posts I write. To do this I write my posts with a mixture
+                of
+                Markdown and HTML. I first write in Markdown to provide an easy writing experience that exchanges HTML's
+                tag
+                structure for special characters that create specific attributes such as headings and ordered lists.
+                Instead of
+                typing &lt;h1&gt;Heading&lt;/h1&gt;, you can just type # Heading. After I write the actual content in
+                markdown,
+                I can export to html, and add the necessary HTML classes to apply the correct CSS.</p>
+            <h3>Deploying the site</h3>
+            <p>Unlike services such as WordPress, Hugo does not porovide hosting for the websites it creates. Luckily,
+                however,
+                free hosting is included by GitHub pages for anyone with a GitHub account. Deploying the website was as
+                simple
+                as running "hugo -D" to build the website to the public folder in the root directory of the website,
+                uploading it to your github pages repo, and applying a hugo github pages action. My website was then
+                publicly accessible from <a href="https://aspendlove.github.io">aspendlove.github.io</a></p>
+            <h2>Closing thoughts</h2>
+            <p>While making this site may have taken longer than a simple WordPress hosted template, I found the
+                learning
+                process of Hugo very enjoyable. I am one who would rather have complete control over my website's source
+                code
+                and deployment, rather than relying on a service to provide it for me, but locking me out of the details
+                and
+                low-level changes. While Hugo does allow you to create your own website, having the ability to use
+                themes
+                allowed me to make the personal decision to reliquish some control over the interface, in the interest
+                of time
+                spent on the project. However, it still allowed me to apply custom css and customize the options the
+                theme makes
+                available, such as changing the preset color themes. Hugo has been a great tool to work with, and I can
+                see
+                myself using it for future projects.</p>
 
 </div>
