@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://aspendlove.github.io'
 languageCode = 'en-us'
 title = "Aidan Spendlove's Blog"
 theme = 'terminal'
@@ -86,7 +86,7 @@ paginate = 5
         identifier = "about"
         name = "About"
         url = "/about"
-      [[languages.en.menu.main]]
-        identifier = "showcase"
-        name = "Showcase"
-        url = "/showcase"
+      # [[languages.en.menu.main]]
+      #   identifier = "showcase"
+      #   name = "Showcase"
+      #   url = "/showcase"
