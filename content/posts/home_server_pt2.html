@@ -5,98 +5,152 @@ draft: false
 ---
 
 <div class="content-body">
-    <body><p>This is part two of my home server post. Read part 1 before this post.</p>
+    <body><p>This is part two of my home server post. Read part 1 before this
+            post.</p>
         <h1 id='moving-to-pc'>Moving to PC</h1>
-        <p>I left off last post talking about the new mini PC that I bought. It was turning out to be a considerable update over the raspberry pi, but all the software I was used to running on my raspberry pi was either incompatible, or simple enough that I wanted to go beyond. The biggest thing I wanted to change was to move away from nextcloudPi as an operating system, and move to a general purpose server operating system.</p>
+        <p>I left off last post talking about the new mini PC that I bought. It
+            was turning out to be a considerable update over the raspberry pi,
+            but all the software I was used to running on my raspberry pi was
+            either incompatible, or simple enough that I wanted to go beyond.
+            The biggest thing I wanted to change was to move away from
+            nextcloudPi as an operating system, and move to a general purpose
+            server operating system.</p>
         <h2 id='choosing-an-operating-system'>Choosing an Operating System</h2>
-        <p>For as long as I&#39;ve used a computer, I&#39;ve used some flavor of Linux, therefore I am very familiar with the base that powers a large majority of servers in production today. In my work most of our clients used Windows Server, but for my use case it offers no benefits over Linux, and actually would be much worse. Running Windows Server would be expensive, slow, difficult to use, and inflexible. The only reason that companies use Windows Server for their internal business use is because it integrates well with their windows workstations with Active Directory.</p>
-        <p>So I decided to use Linux, but that doesn&#39;t narrow it down much. There are many different flavors of Linux out there, and a lot of it comes down to personal preference. Luckily I have had a long time to try almost all of them, so I knew what I wanted almost immediately. Here&#39;s how I narrowed it down. For reference a distro, or distribution, refers to a specific implementation of an operating system based on the Linux kernel and surrounding tools.</p>
+        <p>For as long as I&#39;ve used a computer, I&#39;ve used some flavor of
+            Linux, therefore I am very familiar with the base that powers a
+            large majority of servers in production today. In my work most of
+            our clients used Windows Server, but for my use case it offers no
+            benefits over Linux, and actually would be much worse. Running
+            Windows Server would be expensive, slow, difficult to use, and
+            inflexible. The only reason that companies use Windows Server for
+            their internal business use is because it integrates well with their
+            windows workstations with Active Directory.</p>
+        <p>So I decided to use Linux, but that doesn&#39;t narrow it down much.
+            There are many different flavors of Linux out there, and a lot of it
+            comes down to personal preference. Luckily I have had a long time to
+            try almost all of them, so I knew what I wanted almost immediately.
+            Here&#39;s how I narrowed it down. For reference a distro, or
+            distribution, refers to a specific implementation of an operating
+            system based on the Linux kernel and surrounding tools.</p>
         <ul>
-        <li><p>Debian</p>
-        <ul>
-        <li><p>Pros</p>
-        <ul>
-        <li>Debian is what powers nextcloudPi, and makes a good server operating system because feature updates are very slow to roll out, meaning big changes that may mess up your applications does not happen as often. Security updates are still pushed out regularly</li>
-        <li>Debian is very basic compared to other Linux flavors, and is very simple to use and flexible because of that.</li>
-        <li>Debian has a large support base and has been around for a long time</li>
-        
+            <li><p>Debian</p>
+                <ul>
+                    <li><p>Pros</p>
+                        <ul>
+                            <li>Debian is what powers nextcloudPi, and makes a
+                                good server operating system because feature
+                                updates are very slow to roll out, meaning big
+                                changes that may mess up your applications does
+                                not happen as often. Security updates are still
+                                pushed out regularly</li>
+                            <li>Debian is very basic compared to other Linux
+                                flavors, and is very simple to use and flexible
+                                because of that.</li>
+                            <li>Debian has a large support base and has been
+                                around for a long time</li>
+
+                        </ul>
+                    </li>
+                    <li><p>Cons</p>
+                        <ul>
+                            <li>Debian uses the apt package manager. This is
+                                mostly personal preference, but I find it to be
+                                less stable and overall buggier</li>
+                            <li>Debian does not offer advanced niceties that
+                                some of the other distros</li>
+                            <li>Very hard to install</li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+            <li><p>Ubuntu</p>
+                <ul>
+                    <li><p>Pros</p>
+                        <ul>
+                            <li>Ubuntu has a very large support base, and is
+                                based on Debian, so it can also make use of
+                                Debian&#39;s support base</li>
+                            <li>Ubuntu has some advanced features, such as
+                                support for the snap packaging format by
+                                default.</li>
+                            <li>Ubuntu offers long term support releases that
+                                are supported for 5 years</li>
+                            <li>Easy to install</li>
+
+                        </ul>
+                    </li>
+                    <li><p>Cons</p>
+                        <ul>
+                            <li>I have found Ubuntu to be less than stable</li>
+                            <li>The apt package manager is also used</li>
+                            <li>Ubuntu still lacks many advanced features</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+            <li><p>Red Hat Enterprise Linux</p>
+                <ul>
+                    <li><p>Pros</p>
+                        <ul>
+                            <li><p>RHEL based systems are independent projects
+                                    from Debian.</p>
+                            </li>
+                            <li><p>RHEL offers long term releases for 10 years
+                                    as opposed to Ubuntu&#39;s 5</p>
+                            </li>
+                            <li><p>RHEL offers many advanced features, such as</p>
+                                <ul>
+                                    <li>Cockpit, which provides a web interface
+                                        to remotely manage your server</li>
+                                    <li>Toolbox, which creates containers to
+                                        isolate certain operations on your
+                                        system</li>
+                                    <li>Immutable Filesystems, which on the
+                                        editions that it is included in
+                                        disallows the system from being modified
+                                        and only allowing changes to be made
+                                        through containerization.</li>
+                                    <li>Firewalld, a new advanced firewall and
+                                        network routing backend</li>
+                                    <li>Support for snap server packages</li>
+                                    <li>Podman, for running OCI containers</li>
+                                </ul>
+                            </li>
+                            <li><p>RHEL uses the DNF package manager which I
+                                    have found to be much more stable and
+                                    reliable over APT</p>
+                            </li>
+                            <li><p>RHEL is backed by the resources at Red Hat
+                                    and IBM</p>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li><p>Cons</p>
+                        <ul>
+                            <li>DNF is slightly slower than APT in most
+                                operations</li>
+                            <li>RHEL is harder to install than Ubuntu, but
+                                easier than Debian</li>
+                            <li>Depending on the version you may have to pay for
+                                RHEL</li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+
         </ul>
-        </li>
-        <li><p>Cons</p>
-        <ul>
-        <li>Debian uses the apt package manager. This is mostly personal preference, but I find it to be less stable and overall buggier</li>
-        <li>Debian does not offer advanced niceties that some of the other distros</li>
-        <li>Very hard to install</li>
-        
-        </ul>
-        </li>
-        
-        </ul>
-        </li>
-        <li><p>Ubuntu</p>
-        <ul>
-        <li><p>Pros</p>
-        <ul>
-        <li>Ubuntu has a very large support base, and is based on Debian, so it can also make use of Debian&#39;s support base</li>
-        <li>Ubuntu has some advanced features, such as support for the snap packaging format by default.</li>
-        <li>Ubuntu offers long term support releases that are supported for 5 years</li>
-        <li>Easy to install</li>
-        
-        </ul>
-        </li>
-        <li><p>Cons</p>
-        <ul>
-        <li>I have found Ubuntu to be less than stable</li>
-        <li>The apt package manager is also used</li>
-        <li>Ubuntu still lacks many advanced features</li>
-        
-        </ul>
-        </li>
-        
-        </ul>
-        </li>
-        <li><p>Red Hat Enterprise Linux</p>
-        <ul>
-        <li><p>Pros</p>
-        <ul>
-        <li><p>RHEL based systems are independent projects from Debian.</p>
-        </li>
-        <li><p>RHEL offers long term releases for 10 years as opposed to Ubuntu&#39;s 5</p>
-        </li>
-        <li><p>RHEL offers many advanced features, such as</p>
-        <ul>
-        <li>Cockpit, which provides a web interface to remotely manage your server</li>
-        <li>Toolbox, which creates containers to isolate certain operations on your system</li>
-        <li>Immutable Filesystems, which on the editions that it is included in disallows the system from being modified and only allowing changes to be made through containerization.</li>
-        <li>Firewalld, a new advanced firewall and network routing backend</li>
-        <li>Support for snap server packages</li>
-        <li>Podman, for running OCI containers</li>
-        
-        </ul>
-        </li>
-        <li><p>RHEL uses the DNF package manager which I have found to be much more stable and reliable over APT</p>
-        </li>
-        <li><p>RHEL is backed by the resources at Red Hat and IBM</p>
-        </li>
-        
-        </ul>
-        </li>
-        <li><p>Cons</p>
-        <ul>
-        <li>DNF is slightly slower than APT in most operations</li>
-        <li>RHEL is harder to install than Ubuntu, but easier than Debian</li>
-        <li>Depending on the version you may have to pay for RHEL</li>
-        
-        </ul>
-        </li>
-        
-        </ul>
-        </li>
-        
-        </ul>
-        <p>I ended up going with Fedora, which is a faster updating free version of RHEL. I use Fedora Workstation on my desktop and laptop, so it makes sense to use Fedora Server as well.</p>
+        <p>I ended up going with Fedora, which is a faster updating free version
+            of RHEL. I use Fedora Workstation on my desktop and laptop, so it
+            makes sense to use Fedora Server as well.</p>
         <h2 id='next-up'>Next up</h2>
-        <p>Didn&#39;t realize this would need a part 3, next I&#39;ll talk about setting fedora server up with services.</p>
+        <p>Didn&#39;t realize this would need a part 3, next I&#39;ll talk about
+            setting fedora server up with services.</p>
         <p>&nbsp;</p>
-        </body>
+    </body>
 </div>
